@@ -58,8 +58,8 @@ if [[ ! -d ${BUILDDIR}/kibana-${KIBANA_VERSION} ]]; then
   step "downloaded ${KIBANA_URL}"
   ${CURL} -o "${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT}" "${KIBANA_URL}${SHA1_EXT}"
   cd ${CACHEDIR}
-  cat ${KIBANA_FILE}${SHA1_EXT}
-  sha1sum --check ${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT} | indent
+  
+  # sha1sum --check ${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT} | indent
   
   tar -zx -C ${BUILDDIR} -f ${CACHEDIR}/${KIBANA_FILE}
   finished
