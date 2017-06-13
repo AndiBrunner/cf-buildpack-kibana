@@ -42,7 +42,7 @@ if [[ ! -f ${BUILDDIR}/bin/dockerize ]]; then
   finished
   step "downloaded ${DOCKERIZE_URL}"
 fi
-which indent
+
 # Install jq
 if [[ ! -f ${BUILDDIR}/bin/jq ]]; then
   start "Installing jq"
@@ -59,7 +59,7 @@ if [[ ! -d ${BUILDDIR}/kibana-${KIBANA_VERSION} ]]; then
   ${CURL} -o "${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT}" "${KIBANA_URL}${SHA1_EXT}"
   cd ${CACHEDIR}
   
-  # sha1sum --check ${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT} | indent
+  sha1sum --check ${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT}
   
   tar -zx -C ${BUILDDIR} -f ${CACHEDIR}/${KIBANA_FILE}
   finished
@@ -71,7 +71,7 @@ if [[ -n ${KIBANA_PLUGINS:-""} ]]; then
   step "Installing Kibana Plugins"
   for PLUGIN in "${KIBANA_PLUGINS[@]}"; do
     start "Installing Kibana Plugin ${PLUGIN}"
-    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana plugin -i ${PLUGIN} | indent
+    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana plugin -i ${PLUGIN}
     finished
   done
 fi
@@ -82,7 +82,7 @@ if [[ -n ${KIBANA_PLUGINS_URL:-""} ]]; then
   I=1
   for PLUGIN in "${KIBANA_PLUGINS_URL[@]}"; do
     start "Installing Kibana Plugin from URL: ${PLUGIN}"
-    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana plugin -i url_plugin_$I -u ${PLUGIN} | indent
+    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana plugin -i url_plugin_$I -u ${PLUGIN}
     finished
     I=$((I+1))
   done
