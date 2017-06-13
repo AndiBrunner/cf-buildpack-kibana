@@ -2,7 +2,7 @@
 # usage: bin/compile <build-dir> <cache-dir>
 BP=$(dirname $(dirname $0))
 source $BP/bin/functions.sh
-
+echo "09cff9faa6b25b4d0cfc85f3be6a708f90fa28cb  kibana-5.4.1-linux-x86_64.tar.gz.sha1" | indent
 if [[ -z "${1:-}" ]]; then
   err "Missing argument <build-dir>"
 fi
