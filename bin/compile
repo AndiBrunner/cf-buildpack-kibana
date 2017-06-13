@@ -59,7 +59,7 @@ if [[ ! -d ${BUILDDIR}/kibana-${KIBANA_VERSION} ]]; then
   ${CURL} -o "${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT}" "${KIBANA_URL}${SHA1_EXT}"
   cd ${CACHEDIR}
   
-  sha1sum --check ${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT}
+  #sha1sum --check ${CACHEDIR}/${KIBANA_FILE}${SHA1_EXT}
   
   tar -zx -C ${BUILDDIR} -f ${CACHEDIR}/${KIBANA_FILE}
   finished
