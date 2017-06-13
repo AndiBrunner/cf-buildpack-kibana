@@ -71,7 +71,7 @@ if [[ -n ${KIBANA_PLUGINS:-""} ]]; then
   step "Installing Kibana Plugins"
   for PLUGIN in "${KIBANA_PLUGINS[@]}"; do
     start "Installing Kibana Plugin ${PLUGIN}"
-    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana plugin -i ${PLUGIN}
+    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana-plugin install ${PLUGIN}
     finished
   done
 fi
@@ -82,7 +82,7 @@ if [[ -n ${KIBANA_PLUGINS_URL:-""} ]]; then
   I=1
   for PLUGIN in "${KIBANA_PLUGINS_URL[@]}"; do
     start "Installing Kibana Plugin from URL: ${PLUGIN}"
-    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana plugin -i url_plugin_$I -u ${PLUGIN}
+    ${BUILDDIR}/kibana-${KIBANA_VERSION}/bin/kibana-plugin install ${PLUGIN}
     finished
     I=$((I+1))
   done
