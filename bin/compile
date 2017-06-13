@@ -25,7 +25,7 @@ KIBANA_PLUGINS=${KIBANA_PLUGINS:-""}
 KIBANA_PLUGINS_URL=${KIBANA_PLUGINS_URL:-""}
 KIBANA_VERSION=${KIBANA_VERSION:-$(cat ${BP}/VERSION)}
 KIBANA_FILE=${KIBANA_FILE:-"kibana-${KIBANA_VERSION}.tar.gz"}
-KIBANA_URL=${KIBANA_URL:-"https://download.elastic.co/kibana/kibana/${KIBANA_FILE}"}
+KIBANA_URL=${KIBANA_URL:-"https://artifacts.elastic.co/downloads/kibana/${KIBANA_FILE}"}
 SHA1_EXT=${SHA1_EXT:-".sha1.txt"}
 
 # Helper tools
